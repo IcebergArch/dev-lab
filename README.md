@@ -1,52 +1,65 @@
-# dev-lab
+# 技术体系目录说明
 
-## doc struct
-```text
-dev-lab/
-│
-├── data-structures-algorithms/    # 数据结构与算法
-│   ├── basics/                    # 基础知识（复杂度分析、递归等）
-│   ├── linear-structures/         # 线性结构（数组、链表、栈、队列）
-│   ├── non-linear-structures/     # 非线性结构（树、图、堆、哈希表）
-│   ├── algorithms/                # 各类算法
-│   │   ├── sorting/               # 排序算法
-│   │   ├── searching/             # 查找算法
-│   │   ├── graph/                 # 图算法
-│   │   ├── dynamic-programming/   # 动态规划
-│   │   ├── greedy/                # 贪心算法
-│   │   └── divide-conquer/        # 分治算法
-│   └── problems/                  # 练习题 & LeetCode 题解
-│
-├── tools/                         # 工具类设计 & 工具使用
-│   ├── utils/                     # 通用工具类（日期工具、字符串工具）
-│   ├── dev-tools/                 # 开发工具 (git, docker, vscode)
-│   ├── design-patterns/           # 设计模式 (单例, 工厂, 策略模式)
-│   └── frameworks/                # 常见框架 (Spring, Django, Flask)
-│
-├── systems/                       # 系统设计与案例
-│   ├── number-segment/            # 号段系统设计
-│   ├── short-link/                # 短链系统设计
-│   ├── cache/                     # 缓存系统设计 (LRU, Redis)
-│   ├── message-queue/             # 消息队列 (Kafka, RabbitMQ)
-│   ├── search/                    # 搜索系统 (倒排索引, ElasticSearch)
-│   └── high-availability/         # 分布式 & 高可用设计
-│
-├── languages/                     # 编程语言
-│   ├── java/                      # Java 知识库
-│   │   ├── basics/                # 基础语法 & 面向对象
-│   │   ├── collections/           # 集合框架
-│   │   ├── concurrency/           # 并发编程
-│   │   ├── jvm/                   # JVM 原理 & 调优
-│   │   └── spring/                # Spring 框架
-│   │
-│   └── python/                    # Python 知识库
-│       ├── basics/                # 基础语法 & 内置类型
-│       ├── advanced/              # 迭代器, 生成器, 装饰器
-│       ├── libraries/             # 常用库 (pandas, numpy, requests)
-│       └── web/                   # Web 框架 (Django, Flask, FastAPI)
-│
-└── notes/                         # 笔记 & 思考
-    ├── reading-notes/             # 读书笔记
-    ├── articles/                  # 博客文章草稿
-    └── ideas/                     # 灵感记录
-```
+本仓库技术目录旨在实现以下目标：
+1. **工程设计与实现**：支撑系统设计、数据系统、编程语言、AI 工程等内容；
+2. **面试复习**：提供面试索引层，快速定位高频题、系统设计、项目经验；
+3. **长期技术积累**：支持资料管理、笔记记录、项目实践、工具与框架分类。
+
+## 目录结构概览
+
+### 01_computer-theory
+计算机基础与原理，包括：
+- algorithms（算法分类：basics / divide-conquer / dynamic-programming / graph / greedy / searching / sorting）
+- data-structures
+- concurrency-models
+- network
+- os
+
+### 02_programming
+编程技术与实践：
+- languages（java / python / 子目录按工程能力拆分）
+- engineering-practices
+- runtime
+- performance
+
+### 03_data-systems
+数据系统工程：
+- storage / pipeline / analytics / data-modeling / data-serving
+
+### 04_systems-engineering
+系统工程与设计：
+- backend-systems（cache / data / mq / high-availability / id / short-link / search / number-segment）
+- distributed-systems
+- high-concurrency
+- reliability
+- architecture-design
+
+### 05_ai
+AI 工程：
+- methods（算法 / 模型原理）
+- engineering（训练 / 推理 / serving）
+- infra（加速 / GPU / 调度）
+- integration（接入系统）
+- patterns（可复用模式）
+
+### 06_tools
+工具与框架：
+- componment / dev-tools / infra-tools / productivity
+- infra-tools 下 frameworks（log / mybatis / rpc / spring）
+
+### 07_projects
+项目分类：
+- ai-projects / data-projects / system-projects
+
+### 08_interview
+面试复习索引：
+- ai / backend / data / high-frequency / project-story / system-design
+
+### 09_notes
+笔记与感悟：
+- mistakes / principles / thinking
+
+### resources
+外部资料：
+- images（按技术分类）
+- xmind（思维导图）
