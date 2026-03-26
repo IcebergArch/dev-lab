@@ -8,7 +8,7 @@ Observer
 
 ## zk选举
 
-在 ZAB ( ZooKeeper Atomic Broadcast , ZooKeeper 原子消息广播协议） 协议的事务编号 Zxid 
+在 ZAB （ ZooKeeper Atomic Broadcast , ZooKeeper 原子消息广播协议） 协议的事务编号 Zxid 
 
 设计中，Zxid 是一个 64 位的数字，其中低 32 位是一个简单的单调递增的计数器
 

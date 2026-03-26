@@ -11,7 +11,7 @@ BeanFactoryAware 实现
 4. 如果这个 Bean 已经实现了 BeanFactoryAware 接口，会调用它实现的 setBeanFactory，
 setBeanFactory(BeanFactory)传递的是 Spring 工厂自身（可以用这个方式来获取其它 Bean，
 只需在 Spring 配置文件中配置一个普通的 Bean 就可以）。
-13/04/2018 Page 125 of 283
+
 ApplicationContextAware 实现
 5. 如果这个 Bean 已经实现了 ApplicationContextAware 接口，会调用
 setApplicationContext(ApplicationContext)方法，传入 Spring 上下文（同样这个方式也
@@ -27,10 +27,9 @@ init-method
 postProcessAfterInitialization
 8. 如果这个 Bean 关联了 BeanPostProcessor 接口，将会调用
 postProcessAfterInitialization(Object obj, String s)方法。
-注：以上工作完成以后就可以应用这个 Bean 了，那这个 Bean 是一个 Singleton 的，所以一
-般情况下我们调用同一个 id 的 Bean 会是在内容地址相同的实例，当然在 Spring 配置文件中
-也可以配置非 Singleton。
+注：以上工作完成以后就可以应用这个 Bean 了，那这个 Bean 是一个 Singleton 的，所以一般情况下我们调用同一个 id 的 Bean 会是在内容地址相同的实例，当然在 Spring 配置文件中也可以配置非 Singleton。
 Destroy 过期自动清理阶段
+
 9. 当 Bean 不再需要时，会经过清理阶段，如果 Bean 实现了 DisposableBean 这个接口，会调
 用那个其实现的 destroy()方法；
 destroy-method 自配置清理
