@@ -11,9 +11,130 @@
 
 
 ## 常见概念
+
 乐观锁（Optimistic Lock） ：写时考虑并发，记录版本号，避免写错
 悲观锁（Pessimistic Lock）：读写都考虑并发，读写都加锁
 CAS自旋：读写都考虑并发，但不加锁
+公平锁：先到先得，排队
+非公平锁：竞争，谁抢到是谁的
+
+## Java中的锁
+
+Java Lock
+
+├── 按实现
+│   ├── synchronized
+│   └── Lock(AQS)
+│        ├── ReentrantLock
+│        ├── ReadWriteLock
+│        ├── StampedLock
+│
+├── 按策略
+│   ├── 悲观锁
+│   └── 乐观锁(CAS)
+│
+├── 按公平
+│   ├── 公平锁
+│   └── 非公平锁
+│
+├── 按重入
+│   ├── 可重入锁
+│   └── 不可重入锁
+│
+├── 按等待
+│   ├── 自旋锁
+│   └── 阻塞锁
+│
+├── 按共享
+│   ├── 独占锁
+│   └── 共享锁
+│
+├── synchronized 专属
+│   ├── 偏向锁
+│   ├── 轻量级锁
+│   └── 重量级锁
+│
+└── 按功能
+     ├── 互斥锁
+     ├── 读写锁
+     ├── 信号量
+     ├── 倒计时锁
+     ├── 屏障
+     └── 条件锁
+
+## 具体工具
+
+synchronized → Monitor
+
+Lock → AQS
+
+AQS =
+    state
+  + CLH Queue
+  + park/unpark
+
+ReentrantLock =
+    AQS + 可重入
+
+ReadWriteLock =
+    AQS + 位拆分 state
+
+Condition =
+    AQS + 额外等待队列
+
+
+synchronized 底层实现（对象头 + monitor）
+
+    Java 对象 = {
+        对象头（Header）
+        实例数据
+        对齐填充
+    }
+
+    Mark Word：
+    | 锁标志位 | 偏向锁 | 线程ID | epoch | age | hashcode |
+
+    通过 修改 MarkWord 完成锁升级：无锁 - 向锁 -轻量级锁 - 重量级锁
+
+    synchronized 编译后：
+    monitorenter
+    monitorexit
+
+    JVM内部：
+        ObjectMonitor {
+
+            Object* object;
+
+            Thread* owner;
+
+            EntryList;   // 阻塞队列
+
+            WaitSet;     // wait 队列
+
+        }
+
+    锁升级：
+        无锁
+        ↓
+        偏向锁  CAS 写线程ID
+        ↓
+        轻量级锁 CAS 竞争栈锁
+        ↓
+        重量级锁 OS Mutex，线程阻塞（synchronized 慢的真正原因）
+
+AQS (state + CLH队列 + CAS + park/unpark)
+
+    abstract class AbstractQueuedSynchronizer {
+
+        private volatile int state;
+
+        private transient volatile Node head;
+
+        private transient volatile Node tail;
+    }
+
+
+
 
 
 ## Java中的锁

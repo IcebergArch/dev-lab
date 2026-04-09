@@ -5,6 +5,18 @@ Leader
 Follower
 Observer
 
+写过半认为成功，重选举过配置节点个数半数点才可选Leader, 选leader按最新写入数据的节点优先
+
+
+
+
+
+
+
+
+
+
+
 
 ## zk选举
 
